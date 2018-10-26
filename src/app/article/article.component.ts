@@ -1,6 +1,5 @@
-import { Component, OnInit, HostBinding, Input } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-import { Article } from './article.model';
+import { Component, OnInit, HostBinding, Input, Output, EventEmitter } from '@angular/core';
+import { Article } from '../app.component';
 
 @Component({
   selector: 'app-article',
@@ -10,18 +9,22 @@ import { Article } from './article.model';
 export class ArticleComponent implements OnInit {
   @HostBinding('attr.class') cssClass = 'row';
   @Input() article: Article;
+  @Output() upVoteClicked = new EventEmitter<Article>();
+  @Output() downVoteClicked = new EventEmitter<Article>();
 
   constructor() {
 
   }
 
   voteUp(): boolean {
-    this.article.voteUp();
+    this.article.votes ++;
+    this.upVoteClicked.emit(this.article);
     return false;
   }
 
   voteDown(): boolean {
-    this.article.voteDown();
+    this.article.votes --;
+    this.downVoteClicked.emit(this.article);
     return false;
   }
 
