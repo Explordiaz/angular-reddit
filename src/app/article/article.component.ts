@@ -1,4 +1,5 @@
 import { Component, OnInit, HostBinding, Input } from '@angular/core';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { Article } from './article.model';
 
 @Component({
