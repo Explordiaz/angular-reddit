@@ -17,13 +17,13 @@ export class ArticleComponent implements OnInit {
   }
 
   voteUp(): boolean {
-    this.article.votes ++;
+    // this.article.votes ++;
     this.upVoteClicked.emit(this.article);
     return false;
   }
 
   voteDown(): boolean {
-    this.article.votes --;
+    // this.article.votes --;
     this.downVoteClicked.emit(this.article);
     return false;
   }

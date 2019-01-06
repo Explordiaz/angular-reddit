@@ -1,0 +1,1 @@
+ng build --prod --base-href "https://liberoht.github.io/angular-reddit/"
